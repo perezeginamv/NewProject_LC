@@ -4,11 +4,11 @@ import react from "@vitejs/plugin-react";
 // Один конфиг на два режима:
 //   npm run dev   → песочница playground/ для разработки контролов
 //   npm run build → сборка библиотеки в dist/
-export default defineConfig(({ command }) => ({
+export default defineConfig(({ command, mode }) => ({
   plugins: [react()],
 
   // В режиме разработки открываем песочницу.
-  root: command === "serve" ? "playground" : ".",
+  root: command === "serve" && mode !== "test" ? "playground" : ".",
 
   css: {
     modules: {
@@ -32,5 +32,8 @@ export default defineConfig(({ command }) => ({
       // React не вшиваем в сборку — его даст приложение.
       external: ["react", "react-dom", "react/jsx-runtime"],
     },
+  },
+  test: {
+    include: ["src/**/*.test.js"],
   },
 }));

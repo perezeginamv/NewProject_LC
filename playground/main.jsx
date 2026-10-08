@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { LOWCODE_VERSION } from "../src/index.js";
 import { Button, Chip, inputStyles } from "../src/ui";
 import "./playground.css";
+import ValidationDemo from "./ValidationDemo";
 
 function Playground() {
   const [theme, setTheme] = useState("light");
@@ -25,6 +26,8 @@ function Playground() {
         </Button>
       </div>
       <p>Версия: {LOWCODE_VERSION}</p>
+
+      <ValidationDemo />
 
       <section className="card">
         <h2>Кнопки</h2>
