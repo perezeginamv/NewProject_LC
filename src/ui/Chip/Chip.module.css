@@ -1,0 +1,28 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 26px;
+  padding: 2px 9px;
+  background: var(--lc-surface);
+  border: 1px solid var(--lc-border);
+  border-radius: 999px;
+  color: var(--lc-text);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.chip:hover {
+  border-color: var(--lc-accent);
+}
+
+.active {
+  background: var(--lc-accent);
+  border-color: var(--lc-accent);
+  color: var(--lc-accent-contrast);
+}
+
+.mono {
+  font-family: var(--lc-mono);
+}

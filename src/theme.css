@@ -1,0 +1,59 @@
+/* Тема @sspti/lowcode.
+   Все переменные с префиксом --lc-, чтобы не пересекаться с переменными приложения.
+   :where() даёт нулевую специфичность — приложение может переопределить любую переменную.
+   Тёмная тема: атрибут data-lc-theme="dark" на <html> или на любом контейнере. */
+:where(:root) {
+  --lc-surface: #ffffff;
+  --lc-surface-2: #eef1f5;
+  --lc-border: #d8dde6;
+  --lc-text: #1c2230;
+  --lc-muted: #687185;
+  --lc-accent: #2563d6;
+  --lc-accent-contrast: #ffffff;
+  --lc-ok: #18864b;
+  --lc-err: #cc3333;
+  --lc-err-bg: #fdecec;
+  --lc-flash: rgba(37, 99, 214, 0.16);
+
+  /* цвета подсветки формулы */
+  --lc-tok-function: #7a3bd1;
+  --lc-tok-param: #0b7a68;
+  --lc-tok-number: #b05a00;
+  --lc-tok-string: #2b7a2f;
+  --lc-tok-operator: #c0392b;
+  --lc-tok-constant: #a0337a;
+  --lc-tok-keyword: #2563d6;
+  --lc-tok-punct: #687185;
+  --lc-tok-unknown: #cc3333;
+
+  --lc-radius-sm: 6px;
+  --lc-shadow-pop: 0 8px 24px rgba(10, 20, 40, 0.16);
+  --lc-mono:
+    ui-monospace, "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+}
+
+:where([data-lc-theme="dark"]) {
+  --lc-surface: #1a2029;
+  --lc-surface-2: #232a35;
+  --lc-border: #323b49;
+  --lc-text: #e3e8f0;
+  --lc-muted: #8f99ab;
+  --lc-accent: #5b93f5;
+  --lc-accent-contrast: #0e1420;
+  --lc-ok: #4cc488;
+  --lc-err: #f07070;
+  --lc-err-bg: rgba(240, 112, 112, 0.12);
+  --lc-flash: rgba(91, 147, 245, 0.22);
+
+  --lc-tok-function: #c39bff;
+  --lc-tok-param: #4fd1b9;
+  --lc-tok-number: #f0a35e;
+  --lc-tok-string: #8fd18f;
+  --lc-tok-operator: #ff8a80;
+  --lc-tok-constant: #f08ccf;
+  --lc-tok-keyword: #7aa8f7;
+  --lc-tok-punct: #8f99ab;
+  --lc-tok-unknown: #ff7a7a;
+
+  --lc-shadow-pop: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
