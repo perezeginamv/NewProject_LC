@@ -1,0 +1,168 @@
+.palette {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  max-height: 520px; /* справочник не растягивает форму бесконечно */
+  overflow: hidden;
+  background: var(--lc-surface-2);
+  border: 1px solid var(--lc-border);
+  border-radius: var(--lc-radius-sm);
+  color: var(--lc-text);
+}
+
+/* ---------- Вкладки ---------- */
+.tabs {
+  display: flex;
+  border-bottom: 1px solid var(--lc-border);
+}
+
+.tab {
+  flex: 1; /* три вкладки делят ширину поровну */
+  padding: 8px 6px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--lc-muted);
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.tab:hover {
+  color: var(--lc-text);
+}
+
+.tabActive {
+  border-bottom-color: var(--lc-accent); /* активная — с синей полоской снизу */
+  color: var(--lc-text);
+}
+
+.tabPanel {
+  flex: 1;
+  min-height: 0; /* без этого flex-элемент не даст себя прокрутить */
+  overflow-y: auto; /* длинный список прокручивается внутри справочника */
+  padding: 10px;
+}
+
+/* ---------- Содержимое вкладок ---------- */
+.library {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modules {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.moduleHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 4px 2px;
+  background: none;
+  border: none;
+  color: var(--lc-text);
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.moduleArrow {
+  width: 12px;
+  color: var(--lc-muted);
+}
+
+.moduleCount {
+  margin-left: auto; /* число функций прижато вправо */
+  color: var(--lc-muted);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 2px 0 4px 18px; /* отступ слева — под стрелкой модуля */
+}
+
+.library > .chips {
+  padding-left: 0; /* на вкладке «Операторы» модулей нет — отступ не нужен */
+}
+
+.groupTitle {
+  color: var(--lc-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Описание функции прилипает к низу видимой области при прокрутке */
+.infoPanel {
+  position: sticky;
+  bottom: -10px; /* компенсирует padding .tabPanel */
+  margin: 0 -10px -10px; /* растягиваем на всю ширину панели */
+  padding: 10px;
+  background: var(--lc-surface);
+  border-top: 1px solid var(--lc-border);
+}
+
+/* ---------- Список параметров ---------- */
+.paramList {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.paramItem {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 6px;
+  background: none;
+  border: none;
+  border-radius: 4px;
+  color: var(--lc-text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.paramItem:hover {
+  background: var(--lc-surface);
+}
+
+.paramCode {
+  color: var(--lc-tok-param); /* тот же цвет, что у параметра в формуле */
+  font-family: var(--lc-mono);
+  font-weight: 600;
+}
+
+.paramName {
+  flex: 1;
+  overflow: hidden;
+  color: var(--lc-muted);
+  font-size: 13px;
+  text-overflow: ellipsis; /* длинное название обрезается многоточием */
+  white-space: nowrap;
+}
+
+.paramValue {
+  font-family: var(--lc-mono);
+  font-size: 12px;
+}
+
+.muted {
+  margin: 0;
+  color: var(--lc-muted);
+  font-size: 13px;
+}

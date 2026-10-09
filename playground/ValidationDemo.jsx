@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
-import { createFormulaContext } from "../src/formula/context";
-import { validateFormula } from "../src/formula/validateFormula";
+import { createFormulaContext } from "../src/utils/formula/context";
+import { validateFormula } from "../src/utils/formula/validateFormula";
 import { inputStyles } from "../src/ui";
 import { functionsCatalog, parameters } from "./mockData";
 

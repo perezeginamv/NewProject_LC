@@ -1,0 +1,52 @@
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+}
+
+.signature {
+  font-family: var(--lc-mono);
+  overflow-wrap: anywhere;
+}
+
+.signatureName {
+  color: var(--lc-tok-function);
+  font-weight: 600;
+}
+
+.activeArg {
+  background: var(--lc-flash);
+  border-radius: 3px;
+  font-weight: 700;
+}
+
+.returns {
+  color: var(--lc-muted);
+}
+
+.infoText {
+  margin: 0;
+  color: var(--lc-text);
+}
+
+.args {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--lc-muted);
+}
+
+.args code {
+  color: var(--lc-text);
+  font-family: var(--lc-mono);
+}
+
+.argType {
+  font-family: var(--lc-mono);
+  font-size: 12px;
+}
+
+.example {
+  font-family: var(--lc-mono);
+  overflow-wrap: anywhere;
+}

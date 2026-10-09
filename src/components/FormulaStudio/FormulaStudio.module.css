@@ -1,0 +1,123 @@
+.studio {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--lc-text);
+}
+
+.studioHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* подпись слева, кнопки справа */
+  gap: 10px;
+  flex-wrap: wrap; /* на узком экране кнопки переносятся вниз */
+}
+
+.studioLabel {
+  color: var(--lc-muted);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.studioActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* Две колонки: редактор тянется, справочник — от 280 до 380px */
+.studioBody {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+  gap: 16px;
+  align-items: start;
+}
+
+.studioBodySingle {
+  display: block;
+}
+
+.studioMain {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0; /* без этого длинная формула распирает колонку */
+}
+
+/* Узкий экран — справочник уходит под редактор */
+@media (max-width: 900px) {
+  .studioBody {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Сообщения ---------- */
+.statusMuted,
+.statusError {
+  margin: 0;
+  font-size: 13px;
+}
+
+.statusMuted {
+  color: var(--lc-muted);
+}
+
+.statusError {
+  color: var(--lc-err);
+}
+
+/* ---------- «В формуле: …» ---------- */
+.preview {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.previewTitle {
+  color: var(--lc-muted);
+}
+
+.refChip {
+  padding: 2px 8px;
+  background: var(--lc-surface-2);
+  border-radius: 999px;
+}
+
+.refChip code {
+  color: var(--lc-tok-param);
+  font-family: var(--lc-mono);
+  font-weight: 600;
+}
+
+/* ---------- Результат проверки ---------- */
+.check {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 12px;
+  border-left: 3px solid; /* цветная полоса слева; цвет задают checkOk / checkError */
+  border-radius: var(--lc-radius-sm);
+  font-size: 13px;
+}
+
+.checkOk {
+  background: var(--lc-surface-2);
+  border-color: var(--lc-ok);
+}
+
+.checkError {
+  background: var(--lc-err-bg);
+  border-color: var(--lc-err);
+}
+
+.checkValue {
+  font-family: var(--lc-mono);
+  font-size: 15px;
+}
+
+.example {
+  font-family: var(--lc-mono);
+  overflow-wrap: anywhere;
+}

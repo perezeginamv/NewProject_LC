@@ -4,6 +4,9 @@ import { LOWCODE_VERSION } from "../src/index.js";
 import { Button, Chip, inputStyles } from "../src/ui";
 import "./playground.css";
 import ValidationDemo from "./ValidationDemo";
+import FormulaEditorDemo from "./FormulaEditorDemo.jsx";
+import FormulaStudioDemo from "./FormulaStudioDemo.jsx";
+import ControlsDemo from "./ControlsDemo.jsx";
 
 function Playground() {
   const [theme, setTheme] = useState("light");
@@ -26,8 +29,10 @@ function Playground() {
         </Button>
       </div>
       <p>Версия: {LOWCODE_VERSION}</p>
-
+      <FormulaStudioDemo />
+      <ControlsDemo />
       <ValidationDemo />
+      <FormulaEditorDemo />
 
       <section className="card">
         <h2>Кнопки</h2>

@@ -78,3 +78,39 @@ export const units = [
     aliases: ["celsius"],
   },
 ];
+
+// Группы быстрого выбора единиц (в приложении — с бэкенда или из настроек)
+export const unitQuickGroups = [
+  { title: "Мощность", tokens: ["kilowatt", "megawatt"] },
+  { title: "Общие", tokens: ["percent"] },
+  { title: "Процесс", tokens: ["bar", "degree_celsius"] },
+];
+
+// GET /parameters/{code}/dependencies — в формате бэкенда (snake_case)
+const dependencies = {
+  avg_power_1h: [
+    { code: "useful_power", name: "Полезная мощность", is_raw: false },
+  ],
+  useful_power: [
+    { code: "boiler_power", name: "Мощность котла", is_raw: true },
+    { code: "efficiency", name: "КПД", is_raw: true },
+  ],
+  // цикл: cycle_a → cycle_b → cycle_a
+  cycle_a: [{ code: "cycle_b", name: "Цикл Б" }],
+  cycle_b: [{ code: "cycle_a", name: "Цикл А" }],
+};
+
+// ЗАГЛУШКА запроса зависимостей. В приложении — настоящий запрос к бэкенду.
+export async function fakeLoadDependencies(code) {
+  await new Promise((r) => setTimeout(r, 400));
+  if (code === "broken") throw new Error("Сервер недоступен");
+  return dependencies[code] ?? [];
+}
+
+// Значения для правой части дерева (в приложении — из текущих значений с бэкенда)
+export const currentValues = {
+  avg_power_1h: "1 846 кВт",
+  useful_power: "1 846 кВт",
+  boiler_power: "2 000 кВт",
+  efficiency: "92,3 %",
+};
